@@ -1,4 +1,5 @@
 const userModel = require("../database/schema/userModel")
+const factModel = require("../database/schema/factModel")
 const bcrypt = require('bcrypt');
  
 const createUser = async (req, res) => {
@@ -7,8 +8,9 @@ const createUser = async (req, res) => {
     const saltRounds = 10;
     const password = userData.password
     const hash = bcrypt.hashSync(password, saltRounds)
-    console.log('password ==>', password)
-    console.log('hashedPassword ==>', hash)
+    console.log('password', password)
+    console.log('hashedPassword', hash)
+
     const data = { ...userData, password: hash }
     try {
         await userModel.create(data)
@@ -45,6 +47,18 @@ const validateEmail = async(req, res, next) => {
         res.status(403).send({ message: 'Email is taken' })
     }
 }
+
+const getUserWPost = async(req, res) => {
+    try {
+        find().
+        populate("users", )
+    res.status(200).send(user)
+    } catch (error) {
+        res.send(error)
+    }
+
+
+}
  
-module.exports = { createUser, loginUser, validateEmail }
+module.exports = { createUser, loginUser, validateEmail, getUserWPost }
  
