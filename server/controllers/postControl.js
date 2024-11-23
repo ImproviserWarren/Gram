@@ -1,18 +1,18 @@
-const factModel = require("../database/schema/factModel")
+const postModel = require("../database/schema/postModel")
  
-const createFact = async (req, res) => {
+const createPost = async (req, res) => {
     const body = req.body
     try {
-        const fact = await factModel.create(body)
+        const fact = await postModel.create(body)
         res.status(200).send(fact)
     } catch (e) {
         console.log(e)
     }
 }
  
-const getFacts = async (req, res) => {
+const getPost = async (req, res) => {
     try {
-        const fact = await factModel.find({})
+        const fact = await postModel.find({})
         res.status(200).send(fact)
     } catch (error) {
         console.log(error)
@@ -20,10 +20,10 @@ const getFacts = async (req, res) => {
 }
  
  
-const deleteFact = async (req, res) => {
+const deletePost = async (req, res) => {
     const factId = req.params.factId
     try {
-        const result = await factModel.findByIdAndDelete(factId)
+        const result = await postModel.findByIdAndDelete(factId)
         console.log(result)
         res.status(200).send(`${result._id} Deleted`)
     } catch (error) {
@@ -32,5 +32,5 @@ const deleteFact = async (req, res) => {
 }
 
  
-module.exports = { createFact, getFacts, deleteFact }
+module.exports = { createPost, getPost, deletePost }
  

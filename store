@@ -1,2 +1,8 @@
 snekim
+<<<<<<< HEAD
 GtaAUEOIUthu0TXO
+
+date: { type: Date, default: Date.now },
+=======
+GtaAUEOIUthu0TXO
+>>>>>>> b1f794080211add2dc12877805368fde43f5d59b

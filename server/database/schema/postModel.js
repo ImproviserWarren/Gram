@@ -1,16 +1,17 @@
 const { mongoose, Schema } = require('mongoose')
  
-const factSchema = new Schema({
+const postSchema = new Schema({
     date: { type: Date, default: Date.now() },
     UserId: [{ type: Schema.Types.ObjectId, ref: ''}],
-    fact: String,
-    factTitle: String,
+    postImg: String,
+    postId: String,
+    caption: String,
     likes: {type: Array, default:[]},
     dislikes: {type: Array, default: 'users'},
     comments: [{ type: Schema.Types.ObjectId, ref: 'comments'}]
  
 })
  
-const factModel = mongoose.model('posts', factSchema)
+const postModel = mongoose.model('posts', postSchema)
  
-module.exports = factModel
+module.exports = postModel
