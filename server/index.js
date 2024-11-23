@@ -5,7 +5,7 @@ const postRoute = require('./routes/postRoute.js')
 const userRoute = require('./routes/userRoute.js')
 const commentRoute = require("./routes/commentRoute.js")
 const likePost = require("./routes/likeRoute.js")
- 
+
 const app = express()
 const port = 8080
 app.use(express.json())
